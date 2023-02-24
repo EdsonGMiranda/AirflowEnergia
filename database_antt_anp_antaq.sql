@@ -1,420 +1,421 @@
-/****** Object:  Schema [anp]    Script Date: 23/02/2023 15:03:59 ******/
-CREATE SCHEMA [anp]
-GO
-/****** Object:  Schema [antaq]    Script Date: 23/02/2023 15:03:59 ******/
-CREATE SCHEMA [antaq]
-GO
-/****** Object:  Schema [antq]    Script Date: 23/02/2023 15:03:59 ******/
-CREATE SCHEMA [antq]
-GO
-/****** Object:  Schema [antt]    Script Date: 23/02/2023 15:03:59 ******/
-CREATE SCHEMA [antt]
-GO
-/****** Object:  Table [anp].[liquidos_entregas_distribuidor_atual]    Script Date: 23/02/2023 15:03:59 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [anp].[liquidos_entregas_distribuidor_atual](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[ano] [int] NULL,
-	[mes] [int] NULL,
-	[distribuidor] [varchar](100) NULL,
-	[codproduto] [varchar](100) NULL,
-	[nomeproduto] [varchar](100) NULL,
-	[regiao] [varchar](100) NULL,
-	[qtdproduto] [float] NULL,
-PRIMARY KEY CLUSTERED
+	/****** object:  schema [anp]    script date: 23/02/2023 15:03:59 ******/
+create schema [anp]
+go
+/****** object:  schema [antaq]    script date: 23/02/2023 15:03:59 ******/
+create schema [antaq]
+go
+/****** object:  schema [antq]    script date: 23/02/2023 15:03:59 ******/
+create schema [antq]
+go
+/****** object:  schema [antt]    script date: 23/02/2023 15:03:59 ******/
+create schema [antt]
+go
+/****** object:  table [anp].[liquidos_entregas_distribuidor_atual]    script date: 23/02/2023 15:03:59 ******/
+set ansi_nulls on
+go
+set quoted_identifier on
+go
+create table [anp].[liquidos_entregas_distribuidor_atual](
+	[id] [int] identity(1,1) not null,
+	[ano] [int] null,
+	[mes] [int] null,
+	[distribuidor] [varchar](100) null,
+	[codproduto] [varchar](100) null,
+	[nomeproduto] [varchar](100) null,
+	[regiao] [varchar](100) null,
+	[qtdproduto] [float] null,
+primary key clustered
 (
-	[id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [anp].[liquidos_entregas_fornecedor_atual]    Script Date: 23/02/2023 15:03:59 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [anp].[liquidos_entregas_fornecedor_atual](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[ano] [int] NULL,
-	[mes] [int] NULL,
-	[fornecedor] [varchar](100) NULL,
-	[codproduto] [varchar](100) NULL,
-	[nomeproduto] [varchar](100) NULL,
-	[regiao] [varchar](100) NULL,
-	[qtdproduto] [float] NULL,
-PRIMARY KEY CLUSTERED
+	[id] asc
+)with (pad_index = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on) on [primary]
+) on [primary]
+go
+/****** object:  table [anp].[liquidos_entregas_fornecedor_atual]    script date: 23/02/2023 15:03:59 ******/
+set ansi_nulls on
+go
+set quoted_identifier on
+go
+create table [anp].[liquidos_entregas_fornecedor_atual](
+	[id] [int] identity(1,1) not null,
+	[ano] [int] null,
+	[mes] [int] null,
+	[fornecedor] [varchar](100) null,
+	[codproduto] [varchar](100) null,
+	[nomeproduto] [varchar](100) null,
+	[regiao] [varchar](100) null,
+	[qtdproduto] [float] null,
+primary key clustered
 (
-	[id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [anp].[liquidos_entregas_historico]    Script Date: 23/02/2023 15:03:59 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [anp].[liquidos_entregas_historico](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[ano] [int] NULL,
-	[mes] [int] NULL,
-	[fornecedor] [varchar](150) NULL,
-	[distribuidor] [varchar](150) NULL,
-	[codproduto] [varchar](150) NULL,
-	[nomeproduto] [varchar](150) NULL,
-	[regiaoorigem] [varchar](150) NULL,
-	[uforigem] [varchar](150) NULL,
-	[localidadedestino] [varchar](150) NULL,
-	[regiaodestinatario] [varchar](150) NULL,
-	[ufdestino] [varchar](150) NULL,
-	[qtdproduto] [float] NULL,
-PRIMARY KEY CLUSTERED
+	[id] asc
+)with (pad_index = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on) on [primary]
+) on [primary]
+go
+/****** object:  table [anp].[liquidos_entregas_historico]    script date: 23/02/2023 15:03:59 ******/
+set ansi_nulls on
+go
+set quoted_identifier on
+go
+create table [anp].[liquidos_entregas_historico](
+	[id] [int] identity(1,1) not null,
+	[ano] [int] null,
+	[mes] [int] null,
+	[fornecedor] [varchar](150) null,
+	[distribuidor] [varchar](150) null,
+	[codproduto] [varchar](150) null,
+	[nomeproduto] [varchar](150) null,
+	[regiaoorigem] [varchar](150) null,
+	[uforigem] [varchar](150) null,
+	[localidadedestino] [varchar](150) null,
+	[regiaodestinatario] [varchar](150) null,
+	[ufdestino] [varchar](150) null,
+	[qtdproduto] [float] null,
+primary key clustered
 (
-	[id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [anp].[liquidos_vendas_atual]    Script Date: 23/02/2023 15:03:59 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [anp].[liquidos_vendas_atual](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[ano] [int] NULL,
-	[mes] [int] NULL,
-	[agenteregulado] [varchar](150) NULL,
-	[codproduto] [varchar](150) NULL,
-	[nomeproduto] [varchar](150) NULL,
-	[regiaoorigem] [varchar](150) NULL,
-	[regiaodestinatario] [varchar](150) NULL,
-	[mercadodestinatario] [varchar](150) NULL,
-	[qtdproduto] [float] NULL,
-PRIMARY KEY CLUSTERED
+	[id] asc
+)with (pad_index = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on) on [primary]
+) on [primary]
+go
+/****** object:  table [anp].[liquidos_vendas_atual]    script date: 23/02/2023 15:03:59 ******/
+set ansi_nulls on
+go
+set quoted_identifier on
+go
+create table [anp].[liquidos_vendas_atual](
+	[id] [int] identity(1,1) not null,
+	[ano] [int] null,
+	[mes] [int] null,
+	[agenteregulado] [varchar](150) null,
+	[codproduto] [varchar](150) null,
+	[nomeproduto] [varchar](150) null,
+	[regiaoorigem] [varchar](150) null,
+	[regiaodestinatario] [varchar](150) null,
+	[mercadodestinatario] [varchar](150) null,
+	[qtdproduto] [float] null,
+primary key clustered
 (
-	[id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [anp].[liquidos_vendas_historico]    Script Date: 23/02/2023 15:03:59 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [anp].[liquidos_vendas_historico](
-	[ano] [bigint] NULL,
-	[mes] [bigint] NULL,
-	[agenteregulado] [varchar](max) NULL,
-	[codproduto] [bigint] NULL,
-	[nomeproduto] [varchar](max) NULL,
-	[regiaoorigem] [varchar](max) NULL,
-	[uforigem] [varchar](max) NULL,
-	[regiaodestinatario] [varchar](max) NULL,
-	[ufdestino] [varchar](max) NULL,
-	[mercadodestinatario] [varchar](max) NULL,
-	[qtdproduto] [float] NULL
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
-/****** Object:  Table [anp].[liquidos_vendas_hitorico]    Script Date: 23/02/2023 15:03:59 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [anp].[liquidos_vendas_hitorico](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[ano] [int] NULL,
-	[mes] [int] NULL,
-	[agenteregulado] [varchar](150) NULL,
-	[codproduto] [varchar](150) NULL,
-	[nomeproduto] [varchar](150) NULL,
-	[regiaoorigem] [varchar](150) NULL,
-	[uforigem] [varchar](150) NULL,
-	[regiaodestinatario] [varchar](150) NULL,
-	[ufdestino] [varchar](150) NULL,
-	[mercadodestinatario] [varchar](150) NULL,
-	[qtdproduto] [float] NULL,
-PRIMARY KEY CLUSTERED
+	[id] asc
+)with (pad_index = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on) on [primary]
+) on [primary]
+go
+/****** object:  table [anp].[liquidos_vendas_historico]    script date: 23/02/2023 15:03:59 ******/
+set ansi_nulls on
+go
+set quoted_identifier on
+go
+create table [anp].[liquidos_vendas_historico](
+	[ano] [bigint] null,
+	[mes] [bigint] null,
+	[agenteregulado] [varchar](max) null,
+	[codproduto] [bigint] null,
+	[nomeproduto] [varchar](max) null,
+	[regiaoorigem] [varchar](max) null,
+	[uforigem] [varchar](max) null,
+	[regiaodestinatario] [varchar](max) null,
+	[ufdestino] [varchar](max) null,
+	[mercadodestinatario] [varchar](max) null,
+	[qtdproduto] [float] null
+) on [primary] textimage_on [primary]
+go
+/****** object:  table [anp].[liquidos_vendas_hitorico]    script date: 23/02/2023 15:03:59 ******/
+set ansi_nulls on
+go
+set quoted_identifier on
+go
+create table [anp].[liquidos_vendas_hitorico](
+	[id] [int] identity(1,1) not null,
+	[ano] [int] null,
+	[mes] [int] null,
+	[agenteregulado] [varchar](150) null,
+	[codproduto] [varchar](150) null,
+	[nomeproduto] [varchar](150) null,
+	[regiaoorigem] [varchar](150) null,
+	[uforigem] [varchar](150) null,
+	[regiaodestinatario] [varchar](150) null,
+	[ufdestino] [varchar](150) null,
+	[mercadodestinatario] [varchar](150) null,
+	[qtdproduto] [float] null,
+primary key clustered
 (
-	[id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [anp].[liquidos_vendas_uf_atual]    Script Date: 23/02/2023 15:03:59 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [anp].[liquidos_vendas_uf_atual](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[ano] [bigint] NULL,
-	[mes] [bigint] NULL,
-	[codproduto] [bigint] NULL,
-	[nomeproduto] [varchar](150) NULL,
-	[ufdeorigem] [varchar](150) NULL,
-	[regiaoorigem] [varchar](150) NULL,
-	[ufdedestino] [varchar](150) NULL,
-	[regiaodestinatario] [varchar](150) NULL,
-	[mercadodestinatario] [varchar](150) NULL,
-	[qtdproduto] [float] NULL,
-PRIMARY KEY CLUSTERED
+	[id] asc
+)with (pad_index = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on) on [primary]
+) on [primary]
+go
+/****** object:  table [anp].[liquidos_vendas_uf_atual]    script date: 23/02/2023 15:03:59 ******/
+set ansi_nulls on
+go
+set quoted_identifier on
+go
+create table [anp].[liquidos_vendas_uf_atual](
+	[id] [int] identity(1,1) not null,
+	[ano] [bigint] null,
+	[mes] [bigint] null,
+	[codproduto] [bigint] null,
+	[nomeproduto] [varchar](150) null,
+	[ufdeorigem] [varchar](150) null,
+	[regiaoorigem] [varchar](150) null,
+	[ufdedestino] [varchar](150) null,
+	[regiaodestinatario] [varchar](150) null,
+	[mercadodestinatario] [varchar](150) null,
+	[qtdproduto] [float] null,
+primary key clustered
 (
-	[id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [antaq].[AcordosBilaterais]    Script Date: 23/02/2023 15:03:59 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [antaq].[acordosbilaterais](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[nacionalidadeembarcacao] [varchar](100) NULL,
-	[AnoAcordoBilateral] [varchar](100) NULL,
-	[TotalAcordoBilateral] [int] NULL,
-	[AcordoTipoNavegacao] [varchar](100) NULL,
-	[País] [varchar](100) NULL,
-	[FlagEmbarqueDesembarque] [int] NULL,
-	[ANO] [date] NULL,
-PRIMARY KEY CLUSTERED
+	[id] asc
+)with (pad_index = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on) on [primary]
+) on [primary]
+go
+/****** object:  table [antaq].[acordosbilaterais]    script date: 23/02/2023 15:03:59 ******/
+set ansi_nulls on
+go
+set quoted_identifier on
+go
+create table [antaq].[acordos_bilaterais](
+	[id] [int] identity(1,1) not null,
+	[nacionalidadeembarcacao] [varchar](100) null,
+	[anoacordobilateral] [varchar](100) null,
+	[totalacordobilateral] [int] null,
+	[acordotiponavegacao] [varchar](100) null,
+	[pais] [varchar](100) null,
+	[flagembarquedesembarque] [int] null,
+	[ano] [date] null,
+primary key clustered
 (
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [antaq].[Atracacao]    Script Date: 23/02/2023 15:03:59 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [antaq].[Atracacao](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[IDAtracacao] [bigint] NULL,
-	[CDTUP] [varchar](100) NULL,
-	[IDBerco] [varchar](100) NULL,
-	[Berco] [varchar](100) NULL,
-	[PortoAtracação] [varchar](100) NULL,
-	[ApelidoInstalaçãoPortuaria] [varchar](100) NULL,
-	[ComplexoPortuario] [varchar](100) NULL,
-	[TipodaAutoridadePortuária] [varchar](100) NULL,
-	[DataAtracacao] [datetime] NULL,
-	[DataChegada] [datetime] NULL,
-	[DataDesatracacao] [datetime] NULL,
-	[DataInicioOperacao] [datetime] NULL,
-	[DataTerminoOperacao] [datetime] NULL,
-	[Ano] [varchar](10) NULL,
-	[Mes] [varchar](100) NULL,
-	[TipodeOperacao] [varchar](100) NULL,
-	[TipodeNavegacaodaAtracacao] [varchar](100) NULL,
-	[NacionalidadedoArmador] [bigint] NULL,
-	[FlagMCOperacaoAtracacao] [bigint] NULL,
-	[Terminal] [varchar](100) NULL,
-	[Município] [varchar](100) NULL,
-	[UF] [varchar](30) NULL,
-	[SGUF] [varchar](10) NULL,
-	[RegiãoGeografica] [varchar](30) NULL,
-	[NdaCapitania] [varchar](100) NULL,
-	[NdoIMO] [bigint] NULL,
-PRIMARY KEY CLUSTERED
+	[id] asc
+)with (pad_index = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on) on [primary]
+) on [primary]
+go
+/****** object:  table [antaq].[atracacao]    script date: 23/02/2023 15:03:59 ******/
+set ansi_nulls on
+go
+set quoted_identifier on
+go
+create table [antaq].[atracacao](
+	[id] [int] identity(1,1) not null,
+	[idatracacao] [bigint] null,
+	[cdtup] [varchar](100) null,
+	[idberco] [varchar](100) null,
+	[berco] [varchar](100) null,
+	[portoatracação] [varchar](100) null,
+	[apelidoinstalaçãoportuaria] [varchar](100) null,
+	[complexoportuario] [varchar](100) null,
+	[tipodaautoridadeportuária] [varchar](100) null,
+	[dataatracacao] [datetime] null,
+	[datachegada] [datetime] null,
+	[datadesatracacao] [datetime] null,
+	[datainiciooperacao] [datetime] null,
+	[dataterminooperacao] [datetime] null,
+	[ano] [varchar](10) null,
+	[mes] [varchar](100) null,
+	[tipodeoperacao] [varchar](100) null,
+	[tipodenavegacaodaatracacao] [varchar](100) null,
+	[nacionalidadedoarmador] [bigint] null,
+	[flagmcoperacaoatracacao] [bigint] null,
+	[terminal] [varchar](100) null,
+	[município] [varchar](100) null,
+	[uf] [varchar](30) null,
+	[sguf] [varchar](10) null,
+	[regiãogeografica] [varchar](30) null,
+	[ndacapitania] [varchar](100) null,
+	[ndoimo] [bigint] null,
+
+primary key clustered
 (
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [antaq].[CARGA]    Script Date: 23/02/2023 15:03:59 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [antaq].[CARGA](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[IDCarga] [int] NULL,
-	[IDAtracacao] [int] NULL,
-	[Origem] [varchar](100) NULL,
-	[Destino] [varchar](100) NULL,
-	[CDMercadoria] [varchar](100) NULL,
-	[TipoOperaçãodaCarga] [varchar](100) NULL,
-	[CargaGeralAcondicionamento] [varchar](100) NULL,
-	[ConteinerEstado] [varchar](100) NULL,
-	[TipoNavegação] [varchar](100) NULL,
-	[FlagAutorizacao] [varchar](2) NULL,
-	[FlagCabotagem] [int] NULL,
-	[FlagCabotagemMovimentacao] [int] NULL,
-	[FlagConteinerTamanho] [varchar](100) NULL,
-	[FlagLongoCurso] [int] NULL,
-	[FlagMCOperacaoCarga] [int] NULL,
-	[FlagOffshore] [int] NULL,
-	[FlagTransporteViaInterioir] [int] NULL,
-	[PercursoTransporteemviasInteriores] [varchar](100) NULL,
-	[PercursoTransporteInteriores] [varchar](100) NULL,
-	[STNaturezaCarga] [varchar](100) NULL,
-	[STSH2] [varchar](100) NULL,
-	[STSH4] [varchar](100) NULL,
-	[NaturezadaCarga] [varchar](100) NULL,
-	[Sentido] [varchar](100) NULL,
-	[TEU] [int] NULL,
-	[QTCarga] [int] NULL,
-	[VLPesoCargaBruta] [float] NULL,
-	[ANO] [date] NULL,
-PRIMARY KEY CLUSTERED
+	[id] asc
+)with (pad_index = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on) on [primary]
+) on [primary]
+go
+/****** object:  table [antaq].[carga]    script date: 23/02/2023 15:03:59 ******/
+set ansi_nulls on
+go
+set quoted_identifier on
+go
+create table [antaq].[carga](
+	[id] [int] identity(1,1) not null,
+	[idcarga] [int] null,
+	[idatracacao] [int] null,
+	[origem] [varchar](100) null,
+	[destino] [varchar](100) null,
+	[cdmercadoria] [varchar](100) null,
+	[tipooperaçãodacarga] [varchar](100) null,
+	[cargageralacondicionamento] [varchar](100) null,
+	[conteinerestado] [varchar](100) null,
+	[tiponavegação] [varchar](100) null,
+	[flagautorizacao] [varchar](2) null,
+	[flagcabotagem] [int] null,
+	[flagcabotagemmovimentacao] [int] null,
+	[flagconteinertamanho] [varchar](100) null,
+	[flaglongocurso] [int] null,
+	[flagmcoperacaocarga] [int] null,
+	[flagoffshore] [int] null,
+	[flagtransporteviainterioir] [int] null,
+	[percursotransporteemviasinteriores] [varchar](100) null,
+	[percursotransporteinteriores] [varchar](100) null,
+	[stnaturezacarga] [varchar](100) null,
+	[stsh2] [varchar](100) null,
+	[stsh4] [varchar](100) null,
+	[naturezadacarga] [varchar](100) null,
+	[sentido] [varchar](100) null,
+	[teu] [int] null,
+	[qtcarga] [int] null,
+	[vlpesocargabruta] [float] null,
+	[ano] [date] null,
+primary key clustered
 (
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [antaq].[CARGA_CONTEINERIZADA]    Script Date: 23/02/2023 15:03:59 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [antaq].[CARGA_CONTEINERIZADA](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[IDCarga] [int] NULL,
-	[CDMercadoriaConteinerizada] [varchar](100) NULL,
-	[VLPesoCargaConteinerizada] [float] NULL,
-	[ANO] [date] NULL,
-PRIMARY KEY CLUSTERED
+	[id] asc
+)with (pad_index = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on) on [primary]
+) on [primary]
+go
+/****** object:  table [antaq].[carga_conteinerizada]    script date: 23/02/2023 15:03:59 ******/
+set ansi_nulls on
+go
+set quoted_identifier on
+go
+create table [antaq].[carga_conteinerizada](
+	[id] [int] identity(1,1) not null,
+	[idcarga] [int] null,
+	[cdmercadoriaconteinerizada] [varchar](100) null,
+	[vlpesocargaconteinerizada] [float] null,
+	[ano] [date] null,
+primary key clustered
 (
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [antaq].[Carga_Hidrovia]    Script Date: 23/02/2023 15:03:59 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [antaq].[Carga_Hidrovia](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[IDCarga] [int] NULL,
-	[Hidrovia] [varchar](30) NULL,
-	[ValorMovimentado] [int] NULL,
-	[ANO] [date] NULL,
-PRIMARY KEY CLUSTERED
+	[id] asc
+)with (pad_index = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on) on [primary]
+) on [primary]
+go
+/****** object:  table [antaq].[carga_hidrovia]    script date: 23/02/2023 15:03:59 ******/
+set ansi_nulls on
+go
+set quoted_identifier on
+go
+create table [antaq].[carga_hidrovia](
+	[id] [int] identity(1,1) not null,
+	[idcarga] [int] null,
+	[hidrovia] [varchar](30) null,
+	[valormovimentado] [int] null,
+	[ano] [date] null,
+primary key clustered
 (
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [antaq].[Carga_Regiao]    Script Date: 23/02/2023 15:03:59 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [antaq].[Carga_Regiao](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[IDCarga] [int] NULL,
-	[RegiãoHidrográfica] [varchar](100) NULL,
-	[ValorMovimentado] [int] NULL,
-	[ANO] [date] NULL,
-PRIMARY KEY CLUSTERED
+	[id] asc
+)with (pad_index = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on) on [primary]
+) on [primary]
+go
+/****** object:  table [antaq].[carga_regiao]    script date: 23/02/2023 15:03:59 ******/
+set ansi_nulls on
+go
+set quoted_identifier on
+go
+create table [antaq].[carga_regiao](
+	[id] [int] identity(1,1) not null,
+	[idcarga] [int] null,
+	[regiaohidrografica] [varchar](100) null,
+	[valormovimentado] [int] null,
+	[ano] [date] null,
+primary key clustered
 (
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [antaq].[Carga_Rio]    Script Date: 23/02/2023 15:03:59 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [antaq].[Carga_Rio](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[IDCarga] [int] NULL,
-	[Rio] [varchar](100) NULL,
-	[ValorMovimentado] [int] NULL,
-	[ANO] [date] NULL,
-PRIMARY KEY CLUSTERED
+	[id] asc
+)with (pad_index = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on) on [primary]
+) on [primary]
+go
+/****** object:  table [antaq].[carga_rio]    script date: 23/02/2023 15:03:59 ******/
+set ansi_nulls on
+go
+set quoted_identifier on
+go
+create table [antaq].[carga_rio](
+	[id] [int] identity(1,1) not null,
+	[idcarga] [int] null,
+	[rio] [varchar](100) null,
+	[valormovimentado] [int] null,
+	[ano] [date] null,
+primary key clustered
 (
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [antaq].[LEGENDAS]    Script Date: 23/02/2023 15:03:59 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [antaq].[LEGENDAS](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[CDTUP] [varchar](100) NULL,
-	[NOMEDESTINO] [varchar](100) NULL,
-	[CDBIGRAMADESTINO] [varchar](100) NULL,
-	[CDTRIGRAMADESTINO] [varchar](100) NULL,
-	[CDTUPDESTINO] [varchar](100) NULL,
-	[RIODESTINO] [varchar](100) NULL,
-	[REGIÃOHIDROGRÁFICADESTINO] [varchar](100) NULL,
-	[UFDESTINO] [varchar](100) NULL,
-	[CIDADEDESTINO] [varchar](100) NULL,
-	[PAISDESTINO] [varchar](100) NULL,
-	[CONTINENTEDESTINO] [varchar](100) NULL,
-	[BLOCOECONOMICO_DESTINO] [varchar](100) NULL,
-PRIMARY KEY CLUSTERED
+	[id] asc
+)with (pad_index = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on) on [primary]
+) on [primary]
+go
+/****** object:  table [antaq].[legendas]    script date: 23/02/2023 15:03:59 ******/
+set ansi_nulls on
+go
+set quoted_identifier on
+go
+create table [antaq].[legendas](
+	[id] [int] identity(1,1) not null,
+	[cdtup] [varchar](100) null,
+	[nomedestino] [varchar](100) null,
+	[cdbigramadestino] [varchar](100) null,
+	[cdtrigramadestino] [varchar](100) null,
+	[cdtupdestino] [varchar](100) null,
+	[riodestino] [varchar](100) null,
+	[regiaohidrograficadestino] [varchar](100) null,
+	[ufdestino] [varchar](100) null,
+	[cidadedestino] [varchar](100) null,
+	[paisdestino] [varchar](100) null,
+	[continentedestino] [varchar](100) null,
+	[blocoeconomicodestino] [varchar](100) null,
+primary key clustered
 (
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [antaq].[TaxaOcupacao]    Script Date: 23/02/2023 15:03:59 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [antaq].[TaxaOcupacao](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[IDBerco] [varchar](30) NULL,
-	[DiaTaxaOcupacao] [varchar](30) NULL,
-	[MêsTaxaOcupacao] [varchar](30) NULL,
-	[AnoTaxaOcupacao] [varchar](30) NULL,
-	[TempoEmMinutosdias] [int] NULL,
-	[ANO] [date] NULL,
-PRIMARY KEY CLUSTERED
+	[id] asc
+)with (pad_index = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on) on [primary]
+) on [primary]
+go
+/****** object:  table [antaq].[taxaocupacao]    script date: 23/02/2023 15:03:59 ******/
+set ansi_nulls on
+go
+set quoted_identifier on
+go
+create table [antaq].[taxa_ocupacao](
+	[id] [int] identity(1,1) not null,
+	[idberco] [varchar](30) null,
+	[diataxaocupacao] [varchar](30) null,
+	[mestaxaocupacao] [varchar](30) null,
+	[anotaxaocupacao] [varchar](30) null,
+	[tempoemminutosdias] [int] null,
+	[ano] [date] null,
+primary key clustered
 (
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [antaq].[TemposAtracacao]    Script Date: 23/02/2023 15:03:59 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [antaq].[TemposAtracacao](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[IDAtracacao] [numeric](20, 0) NULL,
-	[TEsperaAtracacao] [numeric](20, 0) NULL,
-	[TEsperaInicioOp] [numeric](20, 0) NULL,
-	[TOperacao] [numeric](20, 0) NULL,
-	[TEsperaDesatracacao] [numeric](20, 0) NULL,
-	[TAtracado] [numeric](20, 0) NULL,
-	[TEstadia] [numeric](20, 0) NULL,
-	[ANO] [date] NULL,
-PRIMARY KEY CLUSTERED
+	[id] asc
+)with (pad_index = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on) on [primary]
+) on [primary]
+go
+/****** object:  table [antaq].[temposatracacao]    script date: 23/02/2023 15:03:59 ******/
+set ansi_nulls on
+go
+set quoted_identifier on
+go
+create table [antaq].[temposatracacao](
+	[id] [int] identity(1,1) not null,
+	[idatracacao] [numeric](20, 0) null,
+	[tesperaatracacao] [numeric](20, 0) null,
+	[tesperainicioop] [numeric](20, 0) null,
+	[toperacao] [numeric](20, 0) null,
+	[tesperadesatracacao] [numeric](20, 0) null,
+	[tatracado] [numeric](20, 0) null,
+	[testadia] [numeric](20, 0) null,
+	[ano] [date] null,
+primary key clustered
 (
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [antt].[producao_origem_destino]    Script Date: 23/02/2023 15:03:59 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [antt].[producao_origem_destino](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[mes_ano] [date] NULL,
-	[ferrovia] [varchar](100) NULL,
-	[mercadoria_antt] [varchar](100) NULL,
-	[estacao_origem] [varchar](100) NULL,
-	[uf_origem] [varchar](100) NULL,
-	[estacao_destino] [varchar](100) NULL,
-	[uf_destino] [varchar](100) NULL,
-	[tu] [numeric](30, 0) NULL,
-	[tku] [numeric](30, 0) NULL,
-PRIMARY KEY CLUSTERED
+	[id] asc
+)with (pad_index = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on) on [primary]
+) on [primary]
+go
+/****** object:  table [antt].[producao_origem_destino]    script date: 23/02/2023 15:03:59 ******/
+set ansi_nulls on
+go
+set quoted_identifier on
+go
+create table [antt].[producao_origem_destino](
+	[id] [int] identity(1,1) not null,
+	[mesano] [date] null,
+	[ferrovia] [varchar](100) null,
+	[mercadoriaantt] [varchar](100) null,
+	[estacaoorigem] [varchar](100) null,
+	[uforigem] [varchar](100) null,
+	[estacaodestino] [varchar](100) null,
+	[ufdestino] [varchar](100) null,
+	[tu] [numeric](30, 0) null,
+	[tku] [numeric](30, 0) null,
+primary key clustered
 (
-	[id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
+	[id] asc
+)with (pad_index = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on) on [primary]
+) on [primary]
+go
