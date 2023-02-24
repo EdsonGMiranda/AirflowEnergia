@@ -540,9 +540,9 @@ def transform_liquidos_vendas_uf_atual(**kwargs):
                    'Mês': 'mes',
                    'Código do Produto': 'codproduto',
                    'Nome do Produto': 'nomeproduto',
-                   'UF Origem': 'uforigem',
+                   'UF de Origem': 'uforigem',
                    'Região Origem': 'regiaoorigem',
-                   'UF Destino': 'ufdestino',
+                   'UF de Destino': 'ufdestino',
                    'Região Destinatário': 'regiaodestinatario',
                    'Mercado Destinatário': 'mercadodestinatario',
                    'Quantidade de Produto (mil m³)': 'qtdproduto'}, inplace=True)
