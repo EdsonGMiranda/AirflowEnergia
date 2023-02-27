@@ -1,11 +1,13 @@
-from airflow import DAG
-from airflow.operators.python_operator import PythonOperator
 import csv
-import pyodbc
+import os
+import re
 from datetime import datetime, timedelta
-from airflow.models import Variable
-import os,re
 
+import pyodbc
+from airflow import DAG
+from airflow.models import Variable
+from airflow.operators.python_operator import PythonOperator
+from airflow.operators.dummy_operator import DummyOperator
 
 default_args = {
     'owner': 'aiflow',
@@ -39,6 +41,7 @@ def formatnull(n):
         n = 'NULL'
     return f'{n}'
 
+start_task = DummyOperator(task_id='start_task', dag=dag)
 
 def read_csv_and_insert_atracacao(**kwargs):
     passwd = Variable.get("passwd")
@@ -161,6 +164,7 @@ def read_csv_and_insert_acordosbilaterais(**kwargs):
 
         print('Rows inserted: ' + str(linha))
         print(f'Imput {linha} no banco')
+
 
 acordosbilaterais = PythonOperator(
     task_id='read_csv_and_insert_acordosbilaterais',
@@ -297,7 +301,6 @@ carga_hidrovia = PythonOperator(
 )
 
 
-
 def read_csv_and_insert_carga_regiao(**kwargs):
     passwd = Variable.get("passwd")
     # Connect to the SQL Server
@@ -348,6 +351,7 @@ carga_regiao = PythonOperator(
     provide_context=True,
     dag=dag
 )
+
 
 def read_csv_and_insert_carga_rio(**kwargs):
     passwd = Variable.get("passwd")
@@ -452,6 +456,7 @@ carga_conteinerizada = PythonOperator(
     provide_context=True,
     dag=dag
 )
+
 
 def read_csv_and_insert_taxa_ocupacao(**kwargs):
     passwd = Variable.get("passwd")
@@ -562,8 +567,16 @@ tempos_atracacao = PythonOperator(
     dag=dag
 )
 
+end_task = DummyOperator(task_id='end_task', dag=dag)
 
 
 
-
-atracacao >>  acordosbilaterais >> carga >> carga_hidrovia >> carga_regiao >> carga_rio >> carga_conteinerizada >> taxa_ocupacao >> tempos_atracacao
+start_task >> atracacao >> end_task
+start_task >> acordosbilaterais >> end_task
+start_task >> carga >> end_task
+start_task >> carga_hidrovia >> end_task
+start_task >> carga_regiao >> end_task
+start_task >> carga_rio >> end_task
+start_task >> carga_conteinerizada >> end_task
+start_task >> taxa_ocupacao >> end_task
+start_task >> tempos_atracacao >> end_task
