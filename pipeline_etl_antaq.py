@@ -19,7 +19,7 @@ default_args = {
 
 
 dag = DAG(
-    'pipeline_carga_tabelas_antaq_v3',
+    '1_pipeline_carga_tabelas_antaq_silver_v1',
     default_args=default_args,
 #    schedule_interval=timedelta(hours=10)
     schedule_interval=None
@@ -44,13 +44,13 @@ def formatnull(n):
 start_task = DummyOperator(task_id='start_task', dag=dag)
 
 def read_csv_and_insert_atracacao(**kwargs):
-    passwd = Variable.get("passwd")
+    passwd_2 = Variable.get("passwd_2")
     # Connect to the SQL Server
     #server = 'SQLDC1VDH0003\DENERGIA'
     server = '10.60.2.110\DENERGIA'
-    database = 'FGV_ENERGIA_DE'
-    username = 'FGV_ENERGIA_DE'
-    password = passwd
+    database = 'FGV_ENERGIA_SILVER'
+    username = 'FGV_ENERGIA_SILVER'
+    password = passwd_2
     mascara = '^2...Atracacao.txt$'
     cnxn = pyodbc.connect(
         'DRIVER={ODBC Driver 18 for SQL Server};SERVER=' + server + ',4513;DATABASE=' + database + ';ENCRYPT=NO;TrustServerCertificate=yes;UID=' + username + ';PWD=' + password)
@@ -120,13 +120,13 @@ atracacao = PythonOperator(
 
 
 def read_csv_and_insert_acordosbilaterais(**kwargs):
-    passwd = Variable.get("passwd")
+    passwd_2 = Variable.get("passwd_2")
     # Connect to the SQL Server
     #server = 'SQLDC1VDH0003\DENERGIA'
     server = '10.60.2.110\DENERGIA'
-    database = 'FGV_ENERGIA_DE'
-    username = 'FGV_ENERGIA_DE'
-    password = passwd
+    database = 'FGV_ENERGIA_SILVER'
+    username = 'FGV_ENERGIA_SILVER'
+    password = passwd_2
     mascara = '^2...AcordosBilaterais.txt$'
     cnxn = pyodbc.connect(
         'DRIVER={ODBC Driver 18 for SQL Server};SERVER=' + server + ',4513;DATABASE=' + database + ';ENCRYPT=NO;TrustServerCertificate=yes;UID=' + username + ';PWD=' + password)
@@ -152,7 +152,7 @@ def read_csv_and_insert_acordosbilaterais(**kwargs):
                     linha += 1
                 else:
                     count = cursor.execute(
-                        f"""INSERT INTO [antaq].[AcordosBilaterais] ([NacionalidadeEmbarcacao],[AnoAcordoBilateral],[TotalAcordoBilateral],[AcordoTipoNavegacao],[País],[FlagEmbarqueDesembarque],[ANO]) values(\'{coluna[0]}\',
+                        f"""INSERT INTO [antaq].[acordos_bilaterais] ([nacionalidadeembarcacao],[anoacordobilateral],[totalacordobilateral],[acordotiponavegacao],[pais],[flagembarquedesembarque],[ano]) values(\'{coluna[0]}\',
                     \'{coluna[1]}\',
                     {formatar(coluna[2])},
                     \'{coluna[3]}\',
@@ -175,13 +175,13 @@ acordosbilaterais = PythonOperator(
 
 
 def read_csv_and_insert_carga(**kwargs):
-    passwd = Variable.get("passwd")
+    passwd_2 = Variable.get("passwd_2")
     # Connect to the SQL Server
     #server = 'SQLDC1VDH0003\DENERGIA'
     server = '10.60.2.110\DENERGIA'
-    database = 'FGV_ENERGIA_DE'
-    username = 'FGV_ENERGIA_DE'
-    password = passwd
+    database = 'FGV_ENERGIA_SILVER'
+    username = 'FGV_ENERGIA_SILVER'
+    password = passwd_2
     mascara = '^2...Carga.txt$'
     cnxn = pyodbc.connect(
         'DRIVER={ODBC Driver 18 for SQL Server};SERVER=' + server + ',4513;DATABASE=' + database + ';ENCRYPT=NO;TrustServerCertificate=yes;UID=' + username + ';PWD=' + password)
@@ -250,13 +250,13 @@ carga = PythonOperator(
 
 
 def read_csv_and_insert_carga_hidrovia(**kwargs):
-    passwd = Variable.get("passwd")
+    passwd_2 = Variable.get("passwd_2")
     # Connect to the SQL Server
     #server = 'SQLDC1VDH0003\DENERGIA'
     server = '10.60.2.110\DENERGIA'
-    database = 'FGV_ENERGIA_DE'
-    username = 'FGV_ENERGIA_DE'
-    password = passwd
+    database = 'FGV_ENERGIA_SILVER'
+    username = 'FGV_ENERGIA_SILVER'
+    password = passwd_2
     mascara = '^2...Carga_Hidrovia.txt$'
     cnxn = pyodbc.connect(
         'DRIVER={ODBC Driver 18 for SQL Server};SERVER=' + server + ',4513;DATABASE=' + database + ';ENCRYPT=NO;TrustServerCertificate=yes;UID=' + username + ';PWD=' + password)
@@ -302,13 +302,13 @@ carga_hidrovia = PythonOperator(
 
 
 def read_csv_and_insert_carga_regiao(**kwargs):
-    passwd = Variable.get("passwd")
+    passwd_2 = Variable.get("passwd_2")
     # Connect to the SQL Server
     #server = 'SQLDC1VDH0003\DENERGIA'
     server = '10.60.2.110\DENERGIA'
-    database = 'FGV_ENERGIA_DE'
-    username = 'FGV_ENERGIA_DE'
-    password = passwd
+    database = 'FGV_ENERGIA_SILVER'
+    username = 'FGV_ENERGIA_SILVER'
+    password = passwd_2
     mascara = '^2...Carga_Regiao.txt$'
     cnxn = pyodbc.connect(
         'DRIVER={ODBC Driver 18 for SQL Server};SERVER=' + server + ',4513;DATABASE=' + database + ';ENCRYPT=NO;TrustServerCertificate=yes;UID=' + username + ';PWD=' + password)
@@ -334,7 +334,7 @@ def read_csv_and_insert_carga_regiao(**kwargs):
                     linha += 1
                 else:
                     count = cursor.execute(
-                        f"""INSERT INTO [antaq].[Carga_Regiao]([IDCarga],[RegiãoHidrográfica],[ValorMovimentado],[ANO]) values({coluna[0]},
+                        f"""INSERT INTO [antaq].[carga_regiao]([idcarga],[regiaohidrografica],[valormovimentado],[ano]) values({coluna[0]},
                     \'{coluna[1]}\',
                     {formatar(coluna[2])},
                     \'{'01-01-2022'}\')""").rowcount
@@ -354,13 +354,13 @@ carga_regiao = PythonOperator(
 
 
 def read_csv_and_insert_carga_rio(**kwargs):
-    passwd = Variable.get("passwd")
+    passwd_2 = Variable.get("passwd_2")
     # Connect to the SQL Server
     #server = 'SQLDC1VDH0003\DENERGIA'
     server = '10.60.2.110\DENERGIA'
-    database = 'FGV_ENERGIA_DE'
-    username = 'FGV_ENERGIA_DE'
-    password = passwd
+    database = 'FGV_ENERGIA_SILVER'
+    username = 'FGV_ENERGIA_SILVER'
+    password = passwd_2
     mascara = '^2...Carga_Rio.txt$'
     cnxn = pyodbc.connect(
         'DRIVER={ODBC Driver 18 for SQL Server};SERVER=' + server + ',4513;DATABASE=' + database + ';ENCRYPT=NO;TrustServerCertificate=yes;UID=' + username + ';PWD=' + password)
@@ -406,13 +406,13 @@ carga_rio = PythonOperator(
 
 
 def read_csv_and_insert_carga_conteinerizada(**kwargs):
-    passwd = Variable.get("passwd")
+    passwd_2 = Variable.get("passwd_2")
     # Connect to the SQL Server
     #server = 'SQLDC1VDH0003\DENERGIA'
     server = '10.60.2.110\DENERGIA'
-    database = 'FGV_ENERGIA_DE'
-    username = 'FGV_ENERGIA_DE'
-    password = passwd
+    database = 'FGV_ENERGIA_SILVER'
+    username = 'FGV_ENERGIA_SILVER'
+    password = passwd_2
     mascara = '^2...Carga_Conteinerizada.txt$'
     cnxn = pyodbc.connect(
         'DRIVER={ODBC Driver 18 for SQL Server};SERVER=' + server + ',4513;DATABASE=' + database + ';ENCRYPT=NO;TrustServerCertificate=yes;UID=' + username + ';PWD=' + password)
@@ -459,13 +459,13 @@ carga_conteinerizada = PythonOperator(
 
 
 def read_csv_and_insert_taxa_ocupacao(**kwargs):
-    passwd = Variable.get("passwd")
+    passwd_2 = Variable.get("passwd_2")
     # Connect to the SQL Server
     #server = 'SQLDC1VDH0003\DENERGIA'
     server = '10.60.2.110\DENERGIA'
-    database = 'FGV_ENERGIA_DE'
-    username = 'FGV_ENERGIA_DE'
-    password = passwd
+    database = 'FGV_ENERGIA_SILVER'
+    username = 'FGV_ENERGIA_SILVER'
+    password = passwd_2
     mascara = '^2...TaxaOcupacao.txt$'
     cnxn = pyodbc.connect(
         'DRIVER={ODBC Driver 18 for SQL Server};SERVER=' + server + ',4513;DATABASE=' + database + ';ENCRYPT=NO;TrustServerCertificate=yes;UID=' + username + ';PWD=' + password)
@@ -491,7 +491,7 @@ def read_csv_and_insert_taxa_ocupacao(**kwargs):
                     linha += 1
                 else:
                     count = cursor.execute(
-                        f"""INSERT INTO [antaq].[TaxaOcupacao] ([IDBerco],[DiaTaxaOcupacao],[MêsTaxaOcupacao],[AnoTaxaOcupacao],[TempoEmMinutosdias],[ANO]) values(\'{coluna[0]}\',
+                        f"""INSERT INTO [antaq].[taxa_ocupacao]([idberco],[diataxaocupacao],[mestaxaocupacao],[anotaxaocupacao],[tempoemminutosdias],[ano]) values(\'{coluna[0]}\',
                     \'{coluna[1]}\',
                     \'{coluna[2]}\',
                     \'{coluna[3]}\',
@@ -513,13 +513,13 @@ taxa_ocupacao = PythonOperator(
 
 
 def read_csv_and_insert_tempos_atracacao(**kwargs):
-    passwd = Variable.get("passwd")
+    passwd_2 = Variable.get("passwd_2")
     # Connect to the SQL Server
     #server = 'SQLDC1VDH0003\DENERGIA'
     server = '10.60.2.110\DENERGIA'
-    database = 'FGV_ENERGIA_DE'
-    username = 'FGV_ENERGIA_DE'
-    password = passwd
+    database = 'FGV_ENERGIA_SILVER'
+    username = 'FGV_ENERGIA_SILVER'
+    password = passwd_2
     mascara = '^2...TemposAtracacao.txt$'
     cnxn = pyodbc.connect(
         'DRIVER={ODBC Driver 18 for SQL Server};SERVER=' + server + ',4513;DATABASE=' + database + ';ENCRYPT=NO;TrustServerCertificate=yes;UID=' + username + ';PWD=' + password)
