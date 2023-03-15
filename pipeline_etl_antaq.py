@@ -41,6 +41,12 @@ def formatnull(n):
         n = 'NULL'
     return f'{n}'
 
+def remove_caractere(string, caractere):
+    nova_string = string.replace(caractere, '')
+    return nova_string
+
+directory_raw = Variable.get("diretorio_raw")
+
 start_task = DummyOperator(task_id='start_task', dag=dag)
 
 def read_csv_and_insert_atracacao(**kwargs):
@@ -57,7 +63,7 @@ def read_csv_and_insert_atracacao(**kwargs):
     cursor = cnxn.cursor()
 
     # read path and mask of file
-    path = '//opt//airflow//dags//'
+    path = directory_raw
     dir_list = os.listdir(path)
     # print the list
     list_arq = list()
@@ -77,11 +83,11 @@ def read_csv_and_insert_atracacao(**kwargs):
                     linha += 1
                 else:
                     count = cursor.execute(
-                        f"""INSERT INTO [antaq].[Atracacao] ([IDAtracacao],[CDTUP],[IDBerco],[Berco],[PortoAtracação],[ApelidoInstalaçãoPortuaria],[ComplexoPortuario],[TipodaAutoridadePortuária],[DataAtracacao],[DataChegada],[DataDesatracacao],[DataInicioOperacao],[DataTerminoOperacao],[Ano],[Mes],[TipodeOperacao],[TipodeNavegacaodaAtracacao],[NacionalidadedoArmador],[FlagMCOperacaoAtracacao],[Terminal],[Município],[UF],[SGUF],[RegiãoGeografica],[NdaCapitania],[NdoIMO]) values({coluna[0]},
+                        f"""INSERT INTO [antaq].[atracacao] ([idatracacao],[cdtup],[idberco],[berco],[portoatracacao],[apelidoinstalacaoportuaria],[complexoportuario],[tipodaautoridadeportuária],[dataatracacao],[datachegada],[datadesatracacao],[datainiciooperacao],[dataterminooperacao],[ano],[mes],[tipodeoperacao],[tipodenavegacaodaatracacao],[nacionalidadedoarmador],[flagmcoperacaoatracacao],[terminal],[municipio],[uf],[sguf],[regiaogeografica],[ndacapitania],[ndoimo]) values({coluna[0]},
                     \'{coluna[1]}\',
                     \'{coluna[2]}\',
                     \'{coluna[3]}\',
-                    \'{coluna[4]}\',
+                    \'{remove_caractere(coluna[4],"'")}\',
                     \'{coluna[5]}\',
                     \'{coluna[6]}\',
                     \'{coluna[7]}\',
@@ -96,7 +102,7 @@ def read_csv_and_insert_atracacao(**kwargs):
                     \'{coluna[16]}\',
                     {formatnull(coluna[17])},
                     {formatnull(coluna[18])},
-                    \'{coluna[19]}\',
+                    \'{remove_caractere(coluna[19],"'")}\',
                     \'{coluna[20]}\',
                     \'{coluna[21]}\',
                     \'{coluna[22]}\',
@@ -106,9 +112,9 @@ def read_csv_and_insert_atracacao(**kwargs):
                     linha += 1
                     cursor.commit()
 
-    print('Rows inserted: ' + str(linha))
-    print(f'Imput {linha} no banco')
-    cnxn.close()
+        print('Rows inserted: ' + str(linha))
+        print(f'Imput {linha} no banco')
+        cnxn.close()
 
 
 atracacao = PythonOperator(
@@ -133,7 +139,7 @@ def read_csv_and_insert_acordosbilaterais(**kwargs):
     cursor = cnxn.cursor()
 
     # read path and mask of file
-    path = '//opt//airflow//dags//'
+    path = directory_raw
     dir_list = os.listdir(path)
     # print the list
     list_arq = list()
@@ -188,7 +194,7 @@ def read_csv_and_insert_carga(**kwargs):
     cursor = cnxn.cursor()
 
     # read path and mask of file
-    path = '//opt//airflow//dags//'
+    path = directory_raw
     dir_list = os.listdir(path)
     # print the list
     list_arq = list()
@@ -263,7 +269,7 @@ def read_csv_and_insert_carga_hidrovia(**kwargs):
     cursor = cnxn.cursor()
 
     # read path and mask of file
-    path = '//opt//airflow//dags//'
+    path = directory_raw
     dir_list = os.listdir(path)
     # print the list
     list_arq = list()
@@ -315,7 +321,7 @@ def read_csv_and_insert_carga_regiao(**kwargs):
     cursor = cnxn.cursor()
 
     # read path and mask of file
-    path = '//opt//airflow//dags//'
+    path = directory_raw
     dir_list = os.listdir(path)
     # print the list
     list_arq = list()
@@ -367,7 +373,7 @@ def read_csv_and_insert_carga_rio(**kwargs):
     cursor = cnxn.cursor()
 
     # read path and mask of file
-    path = '//opt//airflow//dags//'
+    path = directory_raw
     dir_list = os.listdir(path)
     # print the list
     list_arq = list()
@@ -419,7 +425,7 @@ def read_csv_and_insert_carga_conteinerizada(**kwargs):
     cursor = cnxn.cursor()
 
     # read path and mask of file
-    path = '//opt//airflow//dags//'
+    path = directory_raw
     dir_list = os.listdir(path)
     # print the list
     list_arq = list()
@@ -472,7 +478,7 @@ def read_csv_and_insert_taxa_ocupacao(**kwargs):
     cursor = cnxn.cursor()
 
     # read path and mask of file
-    path = '//opt//airflow//dags//'
+    path = directory_raw
     dir_list = os.listdir(path)
     # print the list
     list_arq = list()
@@ -526,7 +532,7 @@ def read_csv_and_insert_tempos_atracacao(**kwargs):
     cursor = cnxn.cursor()
 
     # read path and mask of file
-    path = '//opt//airflow//dags//'
+    path = directory_raw
     dir_list = os.listdir(path)
     # print the list
     list_arq = list()
