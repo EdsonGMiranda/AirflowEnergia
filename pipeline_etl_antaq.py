@@ -109,12 +109,11 @@ def read_csv_and_insert_atracacao(**kwargs):
                     \'{coluna[23]}\',
                     \'{formatnull(coluna[24])}\',
                     {formatnull(coluna[25])})""").rowcount
-                    linha += 1
                     cursor.commit()
+                    linha+=1
 
         print('Rows inserted: ' + str(linha))
         print(f'Imput {linha} no banco')
-        cnxn.close()
 
 
 atracacao = PythonOperator(
